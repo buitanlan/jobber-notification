@@ -6,7 +6,7 @@ import process from 'process';
 import { healthRoutes } from '@notification/routes';
 import { checkConnection } from '@notification/elasticsearch';
 import { createConnection } from '@notification/queues/connection';
-import { consumerAuthEmailMessages } from '@notification/queues/email.consumer';
+import { consumerAuthEmailMessages, consumerOrderEmailMessages } from '@notification/queues/email.consumer';
 import { Channel } from 'amqplib';
 
 const SERVER_PORT = 4001;
@@ -22,7 +22,13 @@ export function start(app: Application) {
 async function startQueues() {
   const emailChannel = await createConnection() as Channel;
   await consumerAuthEmailMessages(emailChannel);
-}
+  await consumerOrderEmailMessages(emailChannel);
+  await emailChannel.assertExchange('jobber-email-notification', 'direct');
+  const message = JSON.stringify({name: 'jobber', service: 'auth notification service'});
+  emailChannel.publish('jobber-email-notification', 'auth-email', Buffer.from(message));
+  await emailChannel.assertExchange('jobber-order-notification', 'direct');
+  const message1 = JSON.stringify({name: 'jobber', service: 'order notification service'});
+  emailChannel.publish('jobber-order-notification', 'order-email', Buffer.from(message1));}
 
 async function startElasticSearch() {
   await checkConnection();
