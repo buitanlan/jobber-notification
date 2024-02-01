@@ -8,7 +8,7 @@ const log = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, 'notificationQueueConn
 export async function createConnection() {
   try {
     const connection: Connection = await client.connect(`${config.RABBITMQ_ENDPOINT}`);
-    const  channel = await connection.createChannel();
+    const channel = await connection.createChannel();
     log.info('Notification server connected to queue successfully ...');
     closeConnection(channel, connection);
     return channel;
@@ -19,8 +19,8 @@ export async function createConnection() {
 }
 
 function closeConnection(channel: Channel, connection: Connection) {
-  process.once('SIGINT', async() => {
+  process.once('SIGINT', async () => {
     await channel.close();
     await connection.close();
-  })
+  });
 }

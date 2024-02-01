@@ -9,7 +9,7 @@ const log = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, 'emailConsumer', 'debu
 export async function consumerAuthEmailMessages(channel: Channel) {
   try {
     if (!channel) {
-      channel = await createConnection() as Channel;
+      channel = (await createConnection()) as Channel;
     }
 
     const exchangeName = 'jobber-email-notification';
@@ -27,10 +27,10 @@ export async function consumerAuthEmailMessages(channel: Channel) {
         appIcon: 'https://i.ibb.co/Kyp2m0t/cover.png',
         username,
         verifyLink,
-        resetLink
+        resetLink,
       };
       await sendEmail(template, receiverEmail, locals);
-      channel.ack(msg!)
+      channel.ack(msg!);
     });
   } catch (error) {
     log.log('error', 'NotificationService EmailConsumer consumerAuthEmailMessages() method:', error);
@@ -40,7 +40,7 @@ export async function consumerAuthEmailMessages(channel: Channel) {
 export async function consumerOrderEmailMessages(channel: Channel) {
   try {
     if (!channel) {
-      channel = await createConnection() as Channel;
+      channel = (await createConnection()) as Channel;
     }
 
     const exchangeName = 'jobber-order-notification';
@@ -76,7 +76,7 @@ export async function consumerOrderEmailMessages(channel: Channel) {
         type,
         message,
         serviceFee,
-        total
+        total,
       } = JSON.parse(msg!.content.toString());
       const locals: IEmailLocals = {
         appLink: `${config.CLIENT_URL}`,
@@ -102,7 +102,7 @@ export async function consumerOrderEmailMessages(channel: Channel) {
         type,
         message,
         serviceFee,
-        total
+        total,
       };
       if (template === 'orderPlaced') {
         await sendEmail('orderPlaced', receiverEmail, locals);
@@ -112,9 +112,7 @@ export async function consumerOrderEmailMessages(channel: Channel) {
       }
       channel.ack(msg!);
     });
-
   } catch (error) {
     log.log('error', 'NotificationService EmailConsumer consumerOrderEmailMessages() method:', error);
   }
 }
-

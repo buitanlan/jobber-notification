@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@buitanlan/jobber-shared':
-    specifier: 1.0.5
-    version: 1.0.5
+    specifier: 1.0.6
+    version: 1.0.6
   '@elastic/elasticsearch':
     specifier: ^8.12.0
     version: 8.12.0
@@ -33,8 +33,8 @@ dependencies:
     specifier: ^2.3.0
     version: 2.3.0
   nodemailer:
-    specifier: ^6.9.8
-    version: 6.9.8
+    specifier: ^6.9.9
+    version: 6.9.9
   pino-pretty:
     specifier: ^10.3.1
     version: 10.3.1
@@ -71,8 +71,8 @@ devDependencies:
     specifier: ^2.29.1
     version: 2.29.1(@typescript-eslint/parser@6.20.0)(eslint@8.56.0)
   husky:
-    specifier: ^9.0.7
-    version: 9.0.7
+    specifier: ^9.0.10
+    version: 9.0.10
   lint-staged:
     specifier: ^15.2.1
     version: 15.2.1
@@ -140,8 +140,8 @@ packages:
       to-fast-properties: 2.0.0
     dev: false
 
-  /@buitanlan/jobber-shared@1.0.5:
-    resolution: {integrity: sha512-+egUGHSyUXo0ydcFV4MR0SaGLgCQ807JJF6UpNVUj5aUvN7ydOQFTAQ/O5zTB3viWrspTbl/u0Mhqu85cKhMCw==, tarball: https://npm.pkg.github.com/download/@buitanlan/jobber-shared/1.0.5/edd5bbfc9c99690c755099a956c172259c32ba4a}
+  /@buitanlan/jobber-shared@1.0.6:
+    resolution: {integrity: sha512-K7/ZaDy2Z0pJ19dAMeY4U5e6RJ6LcMDQBEpHxP6rv2uAc0Kgjku42hz7hr9BDfrI1DTX7Z8jbbLsCzZV5mHKSw==, tarball: https://npm.pkg.github.com/download/@buitanlan/jobber-shared/1.0.6/d7b8fd426a72a869a2ce122922a7968becf2a9dc}
     engines: {node: '>=18'}
     dependencies:
       '@elastic/elasticsearch': 8.12.0
@@ -1821,7 +1821,7 @@ packages:
       html-to-text: 9.0.5
       juice: 9.1.0
       lodash: 4.17.21
-      nodemailer: 6.9.8
+      nodemailer: 6.9.9
       preview-email: 3.0.19
     transitivePeerDependencies:
       - '@babel/core'
@@ -2699,8 +2699,8 @@ packages:
     dev: false
     optional: true
 
-  /husky@9.0.7:
-    resolution: {integrity: sha512-vWdusw+y12DUEeoZqW1kplOFqk3tedGV8qlga8/SF6a3lOiWLqGZZQvfWvY0fQYdfiRi/u1DFNpudTSV9l1aCg==}
+  /husky@9.0.10:
+    resolution: {integrity: sha512-TQGNknoiy6bURzIO77pPRu+XHi6zI7T93rX+QnJsoYFf3xdjKOur+IlfqzJGMHIK/wXrLg+GsvMs8Op7vI2jVA==}
     engines: {node: '>=18'}
     hasBin: true
     dev: true
@@ -3622,8 +3622,8 @@ packages:
     engines: {node: '>=6.0.0'}
     dev: false
 
-  /nodemailer@6.9.8:
-    resolution: {integrity: sha512-cfrYUk16e67Ks051i4CntM9kshRYei1/o/Gi8K1d+R34OIs21xdFnW7Pt7EucmVKA0LKtqUGNcjMZ7ehjl49mQ==}
+  /nodemailer@6.9.9:
+    resolution: {integrity: sha512-dexTll8zqQoVJEZPwQAKzxxtFn0qTnjdQTchoU6Re9BUUGBJiOy3YMn/0ShTW6J5M0dfQ1NeDeRTTl4oIWgQMA==}
     engines: {node: '>=6.0.0'}
     dev: false
 
@@ -4009,7 +4009,7 @@ packages:
       fixpack: 4.0.0
       get-port: 5.1.1
       mailparser: 3.6.5
-      nodemailer: 6.9.8
+      nodemailer: 6.9.9
       open: 7.4.2
       p-event: 4.2.0
       p-wait-for: 3.2.0

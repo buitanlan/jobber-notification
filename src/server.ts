@@ -20,7 +20,7 @@ export function start(app: Application) {
 }
 
 async function startQueues() {
-  const emailChannel = await createConnection() as Channel;
+  const emailChannel = (await createConnection()) as Channel;
   await consumerAuthEmailMessages(emailChannel);
   await consumerOrderEmailMessages(emailChannel);
 
@@ -30,8 +30,8 @@ async function startQueues() {
     receiverEmail: `${config.SENDER_EMAIL}`,
     verifyLink: verifyLink,
     username: 'Manny',
-    template: 'verifyEmail'
-  }
+    template: 'verifyEmail',
+  };
   await emailChannel.assertExchange('jobber-email-notification', 'direct');
   const message = JSON.stringify(messageDetails);
   emailChannel.publish('jobber-email-notification', 'auth-email', Buffer.from(message));
