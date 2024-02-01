@@ -9,7 +9,7 @@
     "module": "CommonJS",
     "moduleResolution": "node",
     "noEmitOnError": true,
-    "outDir": "build",
+    "outDir": "./build",
     "rootDir": "./src",
     "sourceMap": true,
     "strict": true,

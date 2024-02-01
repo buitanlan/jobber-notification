@@ -13,7 +13,7 @@ export async function emailTemplate(template: string, receiver: string, locals: 
       port: 587,
       auth: {
         user: config.SENDER_EMAIL,
-        pass: config.SENDER_PASSWORD
+        pass: config.SENDER_EMAIL_PASSWORD
       }
     });
 

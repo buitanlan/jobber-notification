@@ -1,4 +1,4 @@
-import { winstonLogger } from '@buitanlan/jobber-shared';
+import { IEmailMessageDetails, winstonLogger } from '@buitanlan/jobber-shared';
 import { config } from '@notification/config';
 import { Application } from 'express';
 import http from 'http';
@@ -23,12 +23,22 @@ async function startQueues() {
   const emailChannel = await createConnection() as Channel;
   await consumerAuthEmailMessages(emailChannel);
   await consumerOrderEmailMessages(emailChannel);
+
+  const verifyLink = `${config.CLIENT_URL}/confirm_email?v_token=123234whhghghghhghghgh`;
+
+  const messageDetails: IEmailMessageDetails = {
+    receiverEmail: `${config.SENDER_EMAIL}`,
+    verifyLink: verifyLink,
+    username: 'Manny',
+    template: 'verifyEmail'
+  }
   await emailChannel.assertExchange('jobber-email-notification', 'direct');
-  const message = JSON.stringify({name: 'jobber', service: 'auth notification service'});
+  const message = JSON.stringify(messageDetails);
   emailChannel.publish('jobber-email-notification', 'auth-email', Buffer.from(message));
-  await emailChannel.assertExchange('jobber-order-notification', 'direct');
-  const message1 = JSON.stringify({name: 'jobber', service: 'order notification service'});
-  emailChannel.publish('jobber-order-notification', 'order-email', Buffer.from(message1));}
+  // await emailChannel.assertExchange('jobber-order-notification', 'direct');
+  // const message1 = JSON.stringify({name: 'jobber', service: 'order notification service'});
+  // emailChannel.publish('jobber-order-notification', 'order-email', Buffer.from(message1));
+}
 
 async function startElasticSearch() {
   await checkConnection();
