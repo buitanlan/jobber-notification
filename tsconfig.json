@@ -10,7 +10,8 @@
     "moduleResolution": "node",
     "noEmitOnError": true,
     "outDir": "./build",
-    "rootDir": "./src",
+    "rootDir": ".",
+    "baseUrl": ".",
     "sourceMap": true,
     "strict": true,
     "target": "ES2022",
@@ -23,7 +24,7 @@
       {"transform": "typescript-transform-paths", "afterDeclarations": true}
     ],
     "paths": {
-      "@notifications/*": ["src/*"],
+      "@notifications/*": ["src/*"]
     }
   },
   "include": ["src"],
