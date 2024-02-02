@@ -1,12 +1,12 @@
 import { IEmailLocals, winstonLogger } from '@buitanlan/jobber-shared';
-import { config } from '@notification/config';
+import { config } from '@notifications/config';
 import { Channel } from 'amqplib';
-import { createConnection } from '@notification/queues/connection';
-import { sendEmail } from '@notification/queues/email.transport';
+import { createConnection } from '@notifications/queues/connection';
+import { sendEmail } from '@notifications/queues/email.transport';
 
 const log = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, 'emailConsumer', 'debug');
 
-export async function consumerAuthEmailMessages(channel: Channel) {
+export async function consumeAuthEmailMessages(channel: Channel) {
   try {
     if (!channel) {
       channel = (await createConnection()) as Channel;
@@ -37,7 +37,7 @@ export async function consumerAuthEmailMessages(channel: Channel) {
   }
 }
 
-export async function consumerOrderEmailMessages(channel: Channel) {
+export async function consumeOrderEmailMessages(channel: Channel) {
   try {
     if (!channel) {
       channel = (await createConnection()) as Channel;

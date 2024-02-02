@@ -1,12 +1,12 @@
 import { IEmailMessageDetails, winstonLogger } from '@buitanlan/jobber-shared';
-import { config } from '@notification/config';
+import { config } from '@notifications/config';
 import { Application } from 'express';
 import http from 'http';
 import process from 'process';
-import { healthRoutes } from '@notification/routes';
-import { checkConnection } from '@notification/elasticsearch';
-import { createConnection } from '@notification/queues/connection';
-import { consumerAuthEmailMessages, consumerOrderEmailMessages } from '@notification/queues/email.consumer';
+import { healthRoutes } from '@notifications/routes';
+import { checkConnection } from '@notifications/elasticsearch';
+import { createConnection } from '@notifications/queues/connection';
+import { consumeAuthEmailMessages, consumeOrderEmailMessages } from '@notifications/queues/email.consumer';
 import { Channel } from 'amqplib';
 
 const SERVER_PORT = 4001;
@@ -21,8 +21,8 @@ export function start(app: Application) {
 
 async function startQueues() {
   const emailChannel = (await createConnection()) as Channel;
-  await consumerAuthEmailMessages(emailChannel);
-  await consumerOrderEmailMessages(emailChannel);
+  await consumeAuthEmailMessages(emailChannel);
+  await consumeOrderEmailMessages(emailChannel);
 
   const verifyLink = `${config.CLIENT_URL}/confirm_email?v_token=123234whhghghghhghghgh`;
 

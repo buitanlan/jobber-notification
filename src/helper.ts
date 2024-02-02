@@ -1,5 +1,5 @@
 import { IEmailLocals, winstonLogger } from '@buitanlan/jobber-shared';
-import { config } from '@notification/config';
+import { config } from '@notifications/config';
 import nodemailer from 'nodemailer';
 import Email from 'email-templates';
 import path from 'path';

@@ -1,5 +1,5 @@
 import { winstonLogger } from '@buitanlan/jobber-shared';
-import { config } from '@notification/config';
+import { config } from '@notifications/config';
 import { Client } from '@elastic/elasticsearch';
 
 const log = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, 'notificationElasticsearchServer', 'debug');

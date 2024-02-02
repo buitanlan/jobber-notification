@@ -1,6 +1,6 @@
 import { IEmailLocals, winstonLogger } from '@buitanlan/jobber-shared';
-import { config } from '@notification/config';
-import { emailTemplate } from '@notification/helper';
+import { config } from '@notifications/config';
+import { emailTemplate } from '@notifications/helper';
 
 const log = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, 'emailTransport', 'debug');
 

@@ -1,5 +1,5 @@
 import { winstonLogger } from '@buitanlan/jobber-shared';
-import { config } from '@notification/config';
+import { config } from '@notifications/config';
 import client, { Channel, Connection } from 'amqplib';
 import process from 'process';
 
