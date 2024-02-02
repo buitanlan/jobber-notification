@@ -7,3 +7,6 @@ node_modules
 /.editorconfig
 /.gitignore
 /coverage
+/Dockerfile
+/Dockerfile.dev
+/.dockerignore
