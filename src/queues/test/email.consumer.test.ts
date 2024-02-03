@@ -5,7 +5,7 @@ import { consumeAuthEmailMessages, consumeOrderEmailMessages } from '@notificati
 
 jest.mock('@notifications/queues/connection');
 jest.mock('amqplib');
-jest.mock('@buitanlan/jobber-shared');
+jest.mock('@tanlan/jobber-shared');
 
 describe('Email Consumer ', () => {
   beforeEach(() => {

@@ -1,4 +1,4 @@
-import { IEmailLocals, winstonLogger } from '@buitanlan/jobber-shared';
+import { IEmailLocals, winstonLogger } from '@tanlan/jobber-shared';
 import { config } from '@notifications/config';
 import { emailTemplate } from '@notifications/helper';
 

@@ -1,4 +1,4 @@
-import { IEmailMessageDetails, winstonLogger } from '@buitanlan/jobber-shared';
+import { IEmailMessageDetails, winstonLogger } from '@tanlan/jobber-shared';
 import { config } from '@notifications/config';
 import { Application } from 'express';
 import http from 'http';

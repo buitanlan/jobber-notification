@@ -1,4 +1,4 @@
-import { winstonLogger } from '@buitanlan/jobber-shared';
+import { winstonLogger } from '@tanlan/jobber-shared';
 import { Logger } from 'winston';
 import express, { Express } from 'express';
 import { start } from '@notifications/server';

@@ -1,4 +1,4 @@
-import { winstonLogger } from '@buitanlan/jobber-shared';
+import { winstonLogger } from '@tanlan/jobber-shared';
 import { config } from '@notifications/config';
 import { Client } from '@elastic/elasticsearch';
 
